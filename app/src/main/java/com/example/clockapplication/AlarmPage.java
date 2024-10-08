@@ -1,9 +1,11 @@
 package com.example.clockapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,8 +29,6 @@ public class AlarmPage extends AppCompatActivity {
             Intent intent = new Intent(this, AlarmSetUp.class);
             startActivityForResult(intent, 100);
         });
-
-
     }
 
     @Override
@@ -38,18 +38,17 @@ public class AlarmPage extends AppCompatActivity {
         if (requestCode == 100){
             if (resultCode == RESULT_OK)
             {
-                Button new_alarm = new Button(this);
+                @SuppressLint("InflateParams")
+                LinearLayout new_alarm = (LinearLayout) getLayoutInflater().inflate(R.layout.item, null);
                 int hour = data.getIntExtra("HOUR", 0);
                 int min = data.getIntExtra("MIN", 0);
 
-                new_alarm.setText(String.format("Alarm:      %02d:%02d ", hour, min));
-                new_alarm.setLayoutDirection(R.layout.card_design);
-
+                TextView alarmTime = new_alarm.findViewById(R.id.alarm_time);
+                alarmTime.setText(String.format("Alarm: %02d:%02d", hour, min));                new_alarm.setLayoutDirection(R.layout.item);
                 layout.addView(new_alarm);
             }
         }
     }
-
 
     private void SwitchToWorldClock()
     {
