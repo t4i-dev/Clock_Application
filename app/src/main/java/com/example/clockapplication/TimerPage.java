@@ -25,10 +25,6 @@ public class TimerPage extends AppCompatActivity {
     private long timePausedAt = 0;
     private boolean ispaused = false;
 
-
-    private Button buttonAlarm;
-    private Button buttonWorldClock;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -38,13 +34,15 @@ public class TimerPage extends AppCompatActivity {
         Button startButton = findViewById(R.id.startButton);
         Button resetButton = findViewById(R.id.resetButton);
         Button stopButton  = findViewById(R.id.stopButton);
+        Button buttonAlarm=findViewById(R.id.buttonAlarm);
+        Button buttonWorldClock=findViewById(R.id.butonWorldClock);
+
 
         stopButton.setOnClickListener(v-> stopTimer());
         startButton.setOnClickListener(v -> startTimer());
         resetButton.setOnClickListener(v -> resetTimer());
 
-        buttonAlarm=findViewById(R.id.buttonAlarm);
-        buttonWorldClock=findViewById(R.id.butonWorldClock);
+
         //chuyen page
         buttonAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
