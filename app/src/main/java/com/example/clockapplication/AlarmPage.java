@@ -6,11 +6,19 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class AlarmPage extends AppCompatActivity {
 
-    private LinearLayout layout;
+    private LinearLayout linearLayout;
+    private RecyclerView recyclerView;
+    private RecyclerAdapter recyclerAdapter;
+    private ArrayList<String>arrayTime = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +26,9 @@ public class AlarmPage extends AppCompatActivity {
         Button WorldClock = findViewById(R.id.butonWorldClock);
         Button Timer = findViewById(R.id.buttonTimer);
         Button Add = findViewById(R.id.add_btn);
-        layout = findViewById(R.id.linearLayout);
+        linearLayout = findViewById(R.id.linearLayout);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(AlarmPage.this));
 
 
         WorldClock.setOnClickListener(view -> SwitchToWorldClock());
@@ -35,17 +45,17 @@ public class AlarmPage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == 100){
             if (resultCode == RESULT_OK)
             {
-                Button new_alarm = new Button(this);
                 int hour = data.getIntExtra("HOUR", 0);
                 int min = data.getIntExtra("MIN", 0);
 
-                new_alarm.setText(String.format("Alarm:      %02d:%02d ", hour, min));
-                new_alarm.setLayoutDirection(R.layout.card_design);
+                arrayTime.add(String.format("%02d:%02d:00 ", hour, min));
 
-                layout.addView(new_alarm);
+                recyclerAdapter =new RecyclerAdapter(arrayTime,AlarmPage.this);
+                recyclerView.setAdapter(recyclerAdapter);
             }
         }
     }
@@ -62,7 +72,5 @@ public class AlarmPage extends AppCompatActivity {
         Intent intent = new Intent(this, TimerPage.class);
         startActivity(intent);
     }
-
-
 
 }
