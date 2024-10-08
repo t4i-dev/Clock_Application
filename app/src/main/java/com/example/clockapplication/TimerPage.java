@@ -23,21 +23,23 @@ public class TimerPage extends AppCompatActivity {
     private final Handler timer_handler = new Handler();
     private long startTime = 0;
     private long timePausedAt = 0;
-    private boolean ispaused = false;
-
+    private boolean ispaused = true;
+    private Button startButton;
+    private Button stopButton;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_page);
         timerTextView = findViewById(R.id.timerTextView);
-        Button startButton = findViewById(R.id.startButton);
+        startButton = findViewById(R.id.startButton);
         Button resetButton = findViewById(R.id.resetButton);
-        Button stopButton  = findViewById(R.id.stopButton);
+        stopButton  = findViewById(R.id.stopButton);
         Button buttonAlarm=findViewById(R.id.buttonAlarm);
         Button buttonWorldClock=findViewById(R.id.butonWorldClock);
 
 
+        stopButton.setEnabled(false);
         stopButton.setOnClickListener(v-> stopTimer());
         startButton.setOnClickListener(v -> startTimer());
         resetButton.setOnClickListener(v -> resetTimer());
@@ -67,6 +69,8 @@ public class TimerPage extends AppCompatActivity {
         {
             startTime += (System.currentTimeMillis() - timePausedAt);
             ispaused = false;
+            stopButton.setEnabled(true);
+            startButton.setEnabled(false);
         }
         else{
             startTime = System.currentTimeMillis();
@@ -80,14 +84,20 @@ public class TimerPage extends AppCompatActivity {
         {
             timer_handler.removeCallbacks(timerrunnable);
             timePausedAt = System.currentTimeMillis();
+            stopButton.setEnabled(false);
+            startButton.setEnabled(true);
             ispaused = true;
         }
     }
 
     private void resetTimer()
     {
+        timePausedAt = 0;
+        startTime = 0;
         timer_handler.removeCallbacks(timerrunnable);
         timerTextView.setText("00:00:00");
+        startButton.setEnabled(true);
+        ispaused = true;
     }
 
     private final Runnable timerrunnable = new Runnable() {

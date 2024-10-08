@@ -4,13 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
-
+import android.widget.TextView;
+import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
 
 
 public class AlarmPage extends AppCompatActivity {
@@ -30,14 +32,12 @@ public class AlarmPage extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(AlarmPage.this));
 
-
         WorldClock.setOnClickListener(view -> SwitchToWorldClock());
         Timer.setOnClickListener(view -> SwitchToTimer());
         Add.setOnClickListener(view -> {
             Intent intent = new Intent(this, AlarmSetUp.class);
             startActivityForResult(intent, 100);
         });
-
 
     }
 
@@ -49,6 +49,8 @@ public class AlarmPage extends AppCompatActivity {
         if (requestCode == 100){
             if (resultCode == RESULT_OK)
             {
+                @SuppressLint("InflateParams")
+                LinearLayout new_alarm = (LinearLayout) getLayoutInflater().inflate(R.layout.item, null);
                 int hour = data.getIntExtra("HOUR", 0);
                 int min = data.getIntExtra("MIN", 0);
 
@@ -56,16 +58,19 @@ public class AlarmPage extends AppCompatActivity {
 
                 recyclerAdapter =new RecyclerAdapter(arrayTime,AlarmPage.this);
                 recyclerView.setAdapter(recyclerAdapter);
+                TextView alarmTime = new_alarm.findViewById(R.id.alarm_time);
+                alarmTime.setText(String.format("Alarm: %02d:%02d", hour, min));                new_alarm.setLayoutDirection(R.layout.item);
+                layout.addView(new_alarm);
             }
         }
     }
-
 
     private void SwitchToWorldClock()
     {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 
     private void SwitchToTimer()
     {
