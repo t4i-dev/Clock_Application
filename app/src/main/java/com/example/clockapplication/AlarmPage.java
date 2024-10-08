@@ -87,6 +87,26 @@ public class AlarmPage extends AppCompatActivity {
             // Display the correct time in the Toast message
             Toast.makeText(AlarmPage.this, String.format("Alarm set to %02d:%02d",
                     calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE)), Toast.LENGTH_SHORT).show();
+
+
+            int hour = data.getIntExtra("HOUR", 0);
+            int min = data.getIntExtra("MIN", 0);
+
+            arrayTime.add(String.format("%02d:%02d", hour, min));
+            recyclerView = findViewById(R.id.recyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(AlarmPage.this));
+            recyclerAdapter =new RecyclerAdapter(arrayTime,AlarmPage.this);
+            recyclerView.setAdapter(recyclerAdapter);
+            recyclerAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    arrayTime.remove(position );
+
+                    recyclerAdapter.notifyItemRemoved(position);
+                }
+            });
+
+
         }
     }
 
