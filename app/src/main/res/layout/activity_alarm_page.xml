@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".AlarmPage">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/butonWorldClock"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:text="@string/world_clock_string"
+                android:textColor="@color/blurred" />
+
+            <Button
+                android:id="@+id/buttonTimer"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:text="@string/timer_string"
+                android:textColor="@color/blurred" />
+
+            <Button
+                android:id="@+id/buttonAlarm"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:text="@string/alarm_string"
+                android:textColor="@color/blurred" />
+
+        </TableRow>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="306dp"
+        android:background="@drawable/button_add"
+        android:text="@string/alarm_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="480dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/card_design" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
