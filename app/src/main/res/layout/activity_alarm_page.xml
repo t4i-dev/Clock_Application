@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="306dp"
         android:background="@drawable/button_add"
-        android:text="@string/alarm_string"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
