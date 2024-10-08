@@ -10,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:backgroundTint="@color/background"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="95dp">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="227dp">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -29,41 +29,46 @@
                 android:id="@+id/butonWorldClock"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/background"
+                android:backgroundTint="@color/white"
                 android:text="@string/world_clock_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/textblurred" />
 
             <Button
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
 
-                android:backgroundTint="@color/background"
+                android:backgroundTint="@color/backgroundblurred"
                 android:text="@string/timer_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/buttonAlarm"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
 
-                android:backgroundTint="@color/background"
+                android:backgroundTint="@color/white"
                 android:text="@string/alarm_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/textblurred" />
         </TableRow>
 
+        <!-- Start Button -->
+        <!--Stop btn -->
         <TextView
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="false"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
+            android:width="300dp"
+            android:height="300dp"
+            android:background="@drawable/round_text"
+            android:gravity="center"
             android:text="@string/timer_initial"
             android:textColor="#000000"
             android:textSize="48sp"
             android:textStyle="bold" />
 
-        <!-- Start Button -->
         <Button
             android:id="@+id/startButton"
             android:layout_width="wrap_content"
@@ -77,19 +82,6 @@
             android:text="@string/start_btn"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-        <!--Stop btn -->
-        <Button
-            android:id="@+id/stopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/startButton"
-            android:layout_centerHorizontal="false"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/black"
-            android:padding="12dp"
-            android:text="@string/stop_btn"
-            android:textStyle="bold" />
 
         <Button
             android:id="@+id/resetButton"
@@ -102,6 +94,19 @@
             android:padding="12dp"
             android:text="@string/reset_btn"
             android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startButton"
+            android:layout_centerHorizontal="false"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/black"
+            android:padding="12dp"
+            android:text="@string/stop_btn"
             android:textStyle="bold" />
 
         <!-- Reset Button -->

@@ -29,18 +29,17 @@
                 android:id="@+id/butonWorldClock"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
                 android:text="@string/world_clock_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/black"
+                android:backgroundTint="@color/backgroundblurred"/>
 
             <Button
                 android:id="@+id/buttonTimer"
                 android:layout_width="124dp"
                 android:backgroundTint="@color/white"
-
                 android:layout_height="wrap_content"
                 android:text="@string/timer_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/textblurred" />
 
             <Button
                 android:id="@+id/buttonAlarm"
@@ -48,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:text="@string/alarm_string"
-                android:textColor="@color/blurred" />
+                android:textColor="@color/textblurred" />
 
         </TableRow>
 
@@ -62,13 +61,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"></AnalogClock>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:text="TextView" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
