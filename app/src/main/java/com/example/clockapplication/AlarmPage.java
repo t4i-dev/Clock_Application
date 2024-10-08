@@ -2,19 +2,11 @@ package com.example.clockapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class AlarmPage extends AppCompatActivity {
-    private Button buttonWorldClock;
-    private Button buttonTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +18,7 @@ public class AlarmPage extends AppCompatActivity {
 
 
         WorldClock.setOnClickListener(view -> SwitchToWorldClock());
-        Timer.setOnClickListener(view -> SwitchtoTimer());
+        Timer.setOnClickListener(view -> SwitchToTimer());
         Add.setOnClickListener(view -> AddAlarm());
 
 
@@ -36,6 +28,11 @@ public class AlarmPage extends AppCompatActivity {
     {
         Intent intent = new Intent(this, AlarmSetUp.class);
         startActivity(intent);
+        Button new_alarm = new Button(this);
+        Intent result = new Intent();
+        int hour = result.getIntExtra("HOUR", 0);
+        int min = result.getIntExtra("MIN", 0);
+        new_alarm.setText(String.format("%02d:%02d",hour ,min));
     }
 
 
@@ -45,7 +42,7 @@ public class AlarmPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void SwitchtoTimer()
+    private void SwitchToTimer()
     {
         Intent intent = new Intent(this, TimerPage.class);
         startActivity(intent);

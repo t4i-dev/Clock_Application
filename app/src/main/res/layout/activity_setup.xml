@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="70dp"
     android:background="@android:color/white">
 
     <TextView
@@ -20,11 +20,15 @@
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner" />
+        android:timePickerMode="spinner"
+        />
 
     <Button
         android:id="@+id/set_alarm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Alarm" />
+        android:text="Set Alarm"
+        android:background="@drawable/button_foronoff"
+        android:backgroundTint="#FF1212"
+        android:padding="20dp"/>
 </LinearLayout>
