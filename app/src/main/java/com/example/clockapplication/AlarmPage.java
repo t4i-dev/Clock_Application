@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 
 public class AlarmPage extends AppCompatActivity {
@@ -22,13 +23,13 @@ public class AlarmPage extends AppCompatActivity {
         Button Add = findViewById(R.id.add_btn);
         layout = findViewById(R.id.linearLayout);
 
-
         WorldClock.setOnClickListener(view -> SwitchToWorldClock());
         Timer.setOnClickListener(view -> SwitchToTimer());
         Add.setOnClickListener(view -> {
             Intent intent = new Intent(this, AlarmSetUp.class);
             startActivityForResult(intent, 100);
         });
+
     }
 
     @Override
@@ -55,6 +56,7 @@ public class AlarmPage extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 
     private void SwitchToTimer()
     {
