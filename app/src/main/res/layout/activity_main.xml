@@ -29,19 +29,25 @@
                 android:id="@+id/buttonWorldClock"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
-                android:text="@string/world_clock_string" />
+                android:backgroundTint="@color/backgroundblurred"
+                android:text="@string/world_clock_string"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/buttonTimer"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
-                android:text="@string/timer_string" />
+                android:backgroundTint="@color/white"
+                android:text="@string/timer_string"
+                android:textColor="@color/textblurred" />
 
             <Button
                 android:id="@+id/buttonAlarm"
                 android:layout_width="105dp"
                 android:layout_height="match_parent"
-                android:text="@string/alarm_string" />
+                android:backgroundTint="@color/white"
+                android:text="@string/alarm_string"
+                android:textColor="@color/textblurred" />
         </LinearLayout>
 
     </LinearLayout>
