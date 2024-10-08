@@ -21,6 +21,8 @@ private Button getButton;
         setContentView(R.layout.activity_main);
         buttonAlarm=findViewById(R.id.buttonAlarm);
         buttonTimer=findViewById(R.id.buttonTimer);
+        
+
         buttonAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
