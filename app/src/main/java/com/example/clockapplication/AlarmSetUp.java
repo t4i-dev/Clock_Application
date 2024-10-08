@@ -29,9 +29,10 @@ public class AlarmSetUp extends AppCompatActivity {
     {
         int hour = time_picker.getHour();
         int minute = time_picker.getMinute();
-        Intent intent = new Intent(this, AlarmPage.class);
+        Intent intent = new Intent();
         intent.putExtra("HOUR", hour);
         intent.putExtra("MIN", minute);
+        setResult(RESULT_OK, intent);
         finish();
     }
 

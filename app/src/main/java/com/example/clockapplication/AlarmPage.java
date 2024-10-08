@@ -3,10 +3,14 @@ package com.example.clockapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class AlarmPage extends AppCompatActivity {
+
+    private LinearLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,25 +18,36 @@ public class AlarmPage extends AppCompatActivity {
         Button WorldClock = findViewById(R.id.butonWorldClock);
         Button Timer = findViewById(R.id.buttonTimer);
         Button Add = findViewById(R.id.add_btn);
-
+        layout = findViewById(R.id.linearLayout);
 
 
         WorldClock.setOnClickListener(view -> SwitchToWorldClock());
         Timer.setOnClickListener(view -> SwitchToTimer());
-        Add.setOnClickListener(view -> AddAlarm());
+        Add.setOnClickListener(view -> {
+            Intent intent = new Intent(this, AlarmSetUp.class);
+            startActivityForResult(intent, 100);
+        });
 
 
     }
 
-    private void AddAlarm()
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        Intent intent = new Intent(this, AlarmSetUp.class);
-        startActivity(intent);
-        Button new_alarm = new Button(this);
-        Intent result = new Intent();
-        int hour = result.getIntExtra("HOUR", 0);
-        int min = result.getIntExtra("MIN", 0);
-        new_alarm.setText(String.format("%02d:%02d",hour ,min));
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100){
+            if (resultCode == RESULT_OK)
+            {
+                Button new_alarm = new Button(this);
+                int hour = data.getIntExtra("HOUR", 0);
+                int min = data.getIntExtra("MIN", 0);
+
+                new_alarm.setText(String.format("Alarm:      %02d:%02d ", hour, min));
+                new_alarm.setLayoutDirection(R.layout.card_design);
+
+                layout.addView(new_alarm);
+            }
+        }
     }
 
 
