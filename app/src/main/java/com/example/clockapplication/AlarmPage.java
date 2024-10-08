@@ -42,7 +42,7 @@ public class AlarmPage extends AppCompatActivity {
             }
         }
 
-        Button WorldClock = findViewById(R.id.butonWorldClock);
+        Button WorldClock = findViewById(R.id.buttonWorldClock);
         Button Timer = findViewById(R.id.buttonTimer);
         Button Add = findViewById(R.id.add_btn);
         linearLayout = findViewById(R.id.linearLayout);

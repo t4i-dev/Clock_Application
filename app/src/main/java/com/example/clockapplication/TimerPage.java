@@ -3,18 +3,12 @@ package com.example.clockapplication;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class TimerPage extends AppCompatActivity {
 
@@ -36,7 +30,7 @@ public class TimerPage extends AppCompatActivity {
         Button resetButton = findViewById(R.id.resetButton);
         stopButton  = findViewById(R.id.stopButton);
         Button buttonAlarm=findViewById(R.id.buttonAlarm);
-        Button buttonWorldClock=findViewById(R.id.butonWorldClock);
+        Button buttonWorldClock=findViewById(R.id.buttonWorldClock);
 
 
         stopButton.setEnabled(false);

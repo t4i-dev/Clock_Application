@@ -5,63 +5,69 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="30dp"
     tools:context=".TimerPage">
 
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/background"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/background"
-
-            android:gravity="center_horizontal">
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/butonWorldClock"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/world_clock_string"
-                android:textColor="@color/textblurred" />
+                android:id="@+id/buttonWorldClock"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/world_clock_string" />
 
             <Button
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-
-                android:backgroundTint="@color/backgroundblurred"
-                android:text="@string/timer_string"
-                android:textColor="@color/black" />
+                android:id="@+id/buttonTimer"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/timer_string" />
 
             <Button
                 android:id="@+id/buttonAlarm"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:text="@string/alarm_string" />
+        </LinearLayout>
 
-                android:backgroundTint="@color/white"
-                android:text="@string/alarm_string"
-                android:textColor="@color/textblurred" />
-        </TableRow>
+    </LinearLayout>
 
-        <!-- Start Button -->
-        <!--Stop btn -->
+
+    <!-- Start Button -->
+    <!--Stop btn -->
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
         <TextView
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
             android:width="300dp"
             android:height="300dp"
             android:background="@drawable/round_text"
@@ -70,6 +76,16 @@
             android:textColor="#000000"
             android:textSize="48sp"
             android:textStyle="bold" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
         <Button
             android:id="@+id/stopButton"
@@ -78,10 +94,12 @@
             android:layout_below="@id/resetButton"
             android:layout_centerHorizontal="false"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_stop"
             android:backgroundTint="@color/black"
             android:padding="30dp"
+            android:text=" "
             android:textStyle="bold" />
 
         <Button
@@ -89,9 +107,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/timerTextView"
-            android:layout_centerHorizontal="false"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_continute"
             android:backgroundTint="@color/colorPrimary"
             android:padding="30dp"
@@ -105,15 +123,16 @@
             android:layout_below="@id/startButton"
             android:layout_centerHorizontal="false"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_reset"
             android:backgroundTint="@color/colorAccent"
             android:padding="30dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-
-        <!-- Reset Button -->
-
     </LinearLayout>
+
+    <!-- Reset Button -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

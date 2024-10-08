@@ -7,78 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/background"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#673AB7"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonWorldClock"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/world_clock_string" />
+
+            <Button
+                android:id="@+id/buttonTimer"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/timer_string" />
+
+            <Button
+                android:id="@+id/buttonAlarm"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:text="@string/alarm_string" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.079">
 
-        <TableRow
+        <AnalogClock
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ui_clock"></AnalogClock>
+
+        <TextView
+            android:id="@+id/textViewClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/background"
-
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/butonWorldClock"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/backgroundblurred"
-                android:text="@string/world_clock_string"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/buttonTimer"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/timer_string"
-                android:textColor="@color/textblurred" />
-
-            <Button
-                android:id="@+id/buttonAlarm"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/alarm_string"
-                android:textColor="@color/textblurred" />
-
-        </TableRow>
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_marginTop="200dp"
+            android:text="@string/timer_initial"
+            android:textColor="@color/black"
+            android:textSize="48sp" />
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="501dp">
-
-            <AnalogClock
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"></AnalogClock>
-
-            <TextView
-                android:id="@+id/textViewClock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_horizontal|center_vertical"
-                android:layout_marginTop="200dp"
-                android:text="@string/timer_initial"
-                android:textColor="@color/black"
-                android:textSize="48sp" />
+    </FrameLayout>
 
 
-        </FrameLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

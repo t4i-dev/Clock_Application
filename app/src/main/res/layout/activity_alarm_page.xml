@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AlarmPage">
 
@@ -13,44 +13,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-
-            android:gravity="center_horizontal">
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/butonWorldClock"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/world_clock_string"
-                android:textColor="@color/textblurred" />
+                android:id="@+id/buttonWorldClock"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/world_clock_string" />
 
             <Button
                 android:id="@+id/buttonTimer"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/timer_string"
-                android:textColor="@color/textblurred" />
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/timer_string" />
 
             <Button
                 android:id="@+id/buttonAlarm"
-                android:layout_width="124dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/backgroundblurred"
-                android:text="@string/alarm_string"
-                android:textColor="@color/black" />
-
-        </TableRow>
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:text="@string/alarm_string" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -62,6 +53,7 @@
         android:background="@drawable/button_add"
         android:backgroundTint="@color/black"
         android:padding="25dp"
+        android:text="a"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
