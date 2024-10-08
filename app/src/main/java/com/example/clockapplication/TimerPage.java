@@ -96,6 +96,7 @@ public class TimerPage extends AppCompatActivity {
         startTime = 0;
         timer_handler.removeCallbacks(timerrunnable);
         timerTextView.setText("00:00:00");
+        stopButton.setEnabled(false);
         startButton.setEnabled(true);
         ispaused = true;
     }
