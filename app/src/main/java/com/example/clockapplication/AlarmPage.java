@@ -34,7 +34,8 @@ public class AlarmPage extends AppCompatActivity {
 
     private void AddAlarm()
     {
-
+        Intent intent = new Intent(this, AlarmSetUp.class);
+        startActivity(intent);
     }
 
 
