@@ -37,7 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Countr
 
     @Override
     public int getItemCount() {
-        return 1;
+        return arrayTime.size();
     }
 
     public class CountryViewHolder extends RecyclerView.ViewHolder{
