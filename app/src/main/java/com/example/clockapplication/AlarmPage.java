@@ -49,7 +49,6 @@ public class AlarmPage extends AppCompatActivity {
         if (requestCode == 100){
             if (resultCode == RESULT_OK)
             {
-                @SuppressLint("InflateParams")
                 LinearLayout new_alarm = (LinearLayout) getLayoutInflater().inflate(R.layout.item, null);
                 int hour = data.getIntExtra("HOUR", 0);
                 int min = data.getIntExtra("MIN", 0);
@@ -59,8 +58,7 @@ public class AlarmPage extends AppCompatActivity {
                 recyclerAdapter =new RecyclerAdapter(arrayTime,AlarmPage.this);
                 recyclerView.setAdapter(recyclerAdapter);
                 TextView alarmTime = new_alarm.findViewById(R.id.alarm_time);
-                alarmTime.setText(String.format("Alarm: %02d:%02d", hour, min));                new_alarm.setLayoutDirection(R.layout.item);
-                layout.addView(new_alarm);
+                alarmTime.setText(String.format("Alarm: %02d:%02d", hour, min));
             }
         }
     }
