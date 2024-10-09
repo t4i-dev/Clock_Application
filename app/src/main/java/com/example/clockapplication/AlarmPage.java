@@ -111,15 +111,13 @@ public class AlarmPage extends AppCompatActivity {
     }
 
     private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "akchannel";
-            String desc = "Channel for Alarm Manager";
-            int imp = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);
-            channel.setDescription(desc);
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
+        CharSequence name = "akchannel";
+        String desc = "Channel for Alarm Manager";
+        int imp = NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);
+        channel.setDescription(desc);
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
     }
 
     private void SwitchToWorldClock() {

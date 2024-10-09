@@ -33,10 +33,6 @@
         <activity
             android:name=".AlarmSetUp"
             android:theme="@style/FloatingActivityTheme" />
-        <activity
-            android:name=".NotificationActivity"
-            android:exported="true">
-        </activity>
         <receiver android:name=".AlarmReceiver" />
     </application>
 
